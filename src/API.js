@@ -57,7 +57,7 @@ class API {
             });
     }
     
-    fetchAllLastNodesCount({address, count_tests}) {
+    fetchLastNodeStatCount({address, count_tests}) {
         const params = {address, count_tests};
         if (typeof count_tests !== 'undefined') { params.count_tests = count_tests; }
         return this.request('get-last-node-stat-count', params);
