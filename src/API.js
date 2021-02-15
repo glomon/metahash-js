@@ -56,7 +56,25 @@ class API {
                 return data.error ? Promise.reject(data.error) : Promise.resolve(typeof data.params === 'undefined' ? data.result : data);
             });
     }
-
+    
+    fetchAllLastNodesCount({address, count_tests}) {
+        const params = {address, count_tests};
+        if (typeof count_tests !== 'undefined') { params.count_tests = count_tests; }
+        return this.request('get-last-node-stat-count', params);
+    }
+    
+    fetchLastNodeStatResult({address}) {
+         return this.request('get-last-node-stat-result', {
+            address: address
+        });
+    }
+    
+    fetchLastNodeStatTrust({address}) {
+         return this.request('get-last-node-stat-trust', {
+            address: address
+        });
+    }
+    
     fetchBalance({address}) {
         return this.request('fetch-balance', {
             address: address
