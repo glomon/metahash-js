@@ -75,6 +75,12 @@ class API {
         });
     }
     
+    fetchNodeRaiting({address}) {
+        return this.request('get-nodes-raiting', {
+            address: address
+        });
+    }
+    
     fetchBalance({address}) {
         return this.request('fetch-balance', {
             address: address
